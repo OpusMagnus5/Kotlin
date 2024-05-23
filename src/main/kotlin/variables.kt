@@ -18,5 +18,15 @@ fun main() {
     var toChangeVal: Int = numberType;
     toChangeVal = 1_111;
 
-    println(numberType); //drukuje do konsoli
+    println(numberType); //drukuje do konsoli, dodaje nową linię na koncu, bez nowej linii print()
+
+    //Typ zmiennej zawsze zaczyna się z dużej litery np Int, String, Float
+
+    //Komentarze tak jak w Java
+    //Komentarze dokumentujące
+    /**
+     * The `main` function accepts string arguments from outside.
+     *
+     * @param args arguments from the command line.
+     */
 }
