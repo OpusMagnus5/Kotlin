@@ -29,4 +29,10 @@ fun main() {
      *
      * @param args arguments from the command line.
      */
+
+    val `good name` = 5 // w Kotlin działają spacje w nazwie zmiennej ale musi byc w ` `
+
+    //string templates
+    val someText = "Number is $numberType" //poprzez $nazwaZmiennej wstrzykujemy do stringa
+    val evaluatedExpression = "Some calculate ${numberType * 2}" // możemy również wykonywać wyrażenia za pomocą ${}
 }
