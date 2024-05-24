@@ -20,7 +20,7 @@ fun main() {
 
     println(numberType); //drukuje do konsoli, dodaje nową linię na koncu, bez nowej linii print()
 
-    //Typ zmiennej zawsze zaczyna się z dużej litery np Int, String, Float
+    //Typ zmiennej zawsze zaczyna się z dużej litery np Int, String, Float, Double
 
     //Komentarze tak jak w Java
     //Komentarze dokumentujące
@@ -35,4 +35,7 @@ fun main() {
     //string templates
     val someText = "Number is $numberType" //poprzez $nazwaZmiennej wstrzykujemy do stringa
     val evaluatedExpression = "Some calculate ${numberType * 2}" // możemy również wykonywać wyrażenia za pomocą ${}
+    val largeString = """
+        
+    """.trimIndent() // W tym bloku zachowywane są wszystkie białe znaki
 }
