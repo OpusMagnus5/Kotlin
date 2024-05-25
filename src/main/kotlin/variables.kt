@@ -38,4 +38,14 @@ fun main() {
     val largeString = """
         
     """.trimIndent() // W tym bloku zachowywane są wszystkie białe znaki
+
+    //Boolean
+    // 0 nie jest false, nie można przypisywać 0 lub 1 jako boolean
+    "False".toBooleanStrict() // wyjątek case sensitive
+    "False".toBooleanStrictOrNull() // null
+    "TruE".toBoolean() // true case insensitive
+    // operatory logiczne jak w JAVA ! && || ale jest jeszcze xor
+    // xor zwraca true jesli wartości są różne czyli jedna false a druga true
+    val b2 = false xor true  // true
+    val b4 = true xor true   // false
 }

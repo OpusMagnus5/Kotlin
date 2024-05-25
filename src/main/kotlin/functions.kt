@@ -6,7 +6,7 @@ fun main() {
     // Kiedy funkcja nie zwraca nic, zwraca typ Unit podobnie jak Void w Java
 
     readln() //czyta linie
-    val scanner = Scanner(System.`in`); //możemy sięgać do bibliotek javy normalnie
+    val scanner = Scanner(System.`in`) //możemy sięgać do bibliotek javy normalnie
     Scanner("sdsds") // możemy wskazać źródło sami
     scanner.useDelimiter("_") // mozemy ustawiac wlasny delimiter
     scanner.hasNext() // sprawdza czy są dane do odczytu
