@@ -48,4 +48,14 @@ fun main() {
     // xor zwraca true jesli wartości są różne czyli jedna false a druga true
     val b2 = false xor true  // true
     val b4 = true xor true   // false
+
+    //Typy liczbowe: Long, Int, Short, Byte, Double, Float
+    //Tekst: Char w '', String
+    //Boolean
+
+    val longValue: Long = 100L
+    val intValue: Int = longValue // nie zadziała Kotlin nie wspiera loss conversion
+    longValue.toInt() // trzeba bezpośrednio konwertować
+    longValue is Long // tak można sprawdzać typ
+    longValue as? String //konwertuje ale nie rzuca wyjątku ClassCastException tylko zwraca null
 }
