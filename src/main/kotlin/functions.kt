@@ -10,4 +10,6 @@ fun main() {
     Scanner("sdsds") // możemy wskazać źródło sami
     scanner.useDelimiter("_") // mozemy ustawiac wlasny delimiter
     scanner.hasNext() // sprawdza czy są dane do odczytu
+
+    val (a, b, c, d) = readln().split(",") //wczytanie i rozdzielenie inputów, uwtorzenie 4 zmiennnych
 }
