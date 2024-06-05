@@ -58,4 +58,8 @@ fun main() {
     longValue.toInt() // trzeba bezpośrednio konwertować
     longValue is Long // tak można sprawdzać typ
     longValue as? String //konwertuje ale nie rzuca wyjątku ClassCastException tylko zwraca null
+
+    val uInt: UInt = 5u; // typ unsigned (bez znaku -)
+    val uInt2 = 5u; //lub bez typu
+    val ulong = 5uL //specjalny suffix dla usigned longa
 }
