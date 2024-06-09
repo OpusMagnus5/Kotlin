@@ -7,3 +7,7 @@ fun main() {
         -1
     }
 }
+
+fun makeAnException(): Nothing { //kiedy funkcja rzuca wyjątek zwraca typ Nothing
+    throw Exception("I'm an exception!")
+}
