@@ -82,4 +82,11 @@ fun main() {
 
     val positiveNumber = name.takeIf { it > 0 } // pobiera zmienną name jeśli spełnimy warunek, null jeśli nie spełnimy
     val notBlankString = name.takeUnless { it.isBlank() } // pobiera zmienną name jeśli nie spełniamy warunku, null jesli spełnimy
+
+    if (name is String) { //zmienna sprawdzona w ten sposób wewnatrz jest automatycznie castowana na ten typ
+        println(name.length)
+    }
+
+    fun String.addExclamation() = this + "!" //ZAJEBISTE można dodawać metody już do istnięjacych obiektów !!!
+    var numb12: Int? = null
 }
