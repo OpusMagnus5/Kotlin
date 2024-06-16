@@ -49,6 +49,41 @@ fun main() {
         number % 2 == 0 -> println("Even number")
         else -> println("Odd number greater than 10")
     }
+
+    val greet: (String) -> Unit = { name -> println("Hello, $name!") } // można zapisywac funkcje jako zmienną
+    val sum = operateOnNumbers(2, 3, { x, y -> x + y }) //przekazywanie metody jako parametr
+    val sumFunction = getMathFunction("sum") //można zwracac funkcje
+    //wykorzystanie
+    button.setOnClickListener { view -> // lambda
+    }
+
+    fun fetchData(callback: (data: Data) -> Unit) { //callback
+        callback(result)
+    }
+    fetchData { data ->
+        println("Data received: $data")
+    }
+
+    val numbers = listOf(1, 2, 3, 4)
+    val evenNumbers = numbers.filter { it % 2 == 0 } //do list
+
+    fun topFun() {
+        println("Hello from topFun!")
+    }
+
+    val functionRef = ::topFun //refrencja do funkcji jak JAVA
+}
+
+fun operateOnNumbers(a: Int, b: Int, operation: (Int, Int) -> Int): Int {
+    return operation(a, b)
+}
+
+fun getMathFunction(type: String): (Int, Int) -> Int {
+    return when (type) {
+        "sum" -> { x, y -> x + y }
+        "subtract" -> { x, y -> x - y }
+        else -> { _, _ -> 0 }
+    }
 }
 
 fun greet(name: String, greeting: String = "Hello"): String { //deklaracja funkcji, można przypisywac wartości domyślne gdy trafi null
