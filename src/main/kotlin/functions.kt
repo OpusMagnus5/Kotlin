@@ -65,7 +65,21 @@ fun main() {
     }
 
     val numbers = listOf(1, 2, 3, 4)
-    val evenNumbers = numbers.filter { it % 2 == 0 } //do list
+    val evenNumbers = numbers.filter { it % 2 == 0 } //lambda
+    val fun1 = { a1: Int, b1: Int -> a1 * b1 }
+    val mul1 = fun(a: Int, b: Int): Int { // to jest to samo co wyzej
+        return a * b
+    }
+    val fun2 = { println() } //lambda bez argumentów
+
+    listOf(1, 2, 3, 4).forEach { // wraca
+        if (it == 3) return@forEach  // pomijamy interacje w przypadku 3 po małpie piszemy nazwe funkcji która woła lambde
+        println(it)
+    }
+
+    //originalText.filter() { c -> c != '.' } taki zapis gdy przekazujemy lambde jako ostatni argument (poza nawiasami ())
+    //originalText.filter { c -> c != '.' } jesli nawiasy są puste i lambda jest jedynym parametrem mozemy pominąc ()
+    //originalText.filter { it != '.' } // w lamdach jest dostępny parametr it który wskazuje parametr przekazany do lamdy
 
     fun topFun() {
         println("Hello from topFun!")
