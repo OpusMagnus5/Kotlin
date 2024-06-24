@@ -72,7 +72,7 @@ fun main() {
     }
     val fun2 = { println() } //lambda bez argumentów
 
-    listOf(1, 2, 3, 4).forEach { // wraca
+    listOf(1, 2, 3, 4).forEach { // gdyby było samo return wychodzimy do main()
         if (it == 3) return@forEach  // pomijamy interacje w przypadku 3 po małpie piszemy nazwe funkcji która woła lambde
         println(it)
     }
