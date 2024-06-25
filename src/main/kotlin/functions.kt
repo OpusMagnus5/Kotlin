@@ -29,9 +29,9 @@ fun main() {
 
     when (number) { // jak switch w java, nie trzeba breaka
         1 -> println("One")
-        2 -> println("Two")
-        3 -> println("Three")
-        4 -> println("Four")
+        in 1..10 -> println("Two") //można używac range
+        a + b -> println("Three") // można robić działania
+        4, 5 -> println("Four") // można podawac kilka opcji po przecinku
         else -> println("Number is greater than four")
     }
 
@@ -43,7 +43,7 @@ fun main() {
         else -> "Number is greater than four"
     }
 
-    when { // można też użwać warunków zamiast stałych wartościF
+    when { // można też użwać warunków zamiast stałych wartości, jesli nie podamy przy zmiennej możemy wykorzystać do porównania wczesniej zadeklarowana
         number < 0 -> println("Negative number")
         number in 1..10 -> println("Number between 1 and 10")
         number % 2 == 0 -> println("Even number")
