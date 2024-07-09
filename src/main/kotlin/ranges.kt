@@ -12,4 +12,6 @@ fun main() {
     val notWithin = c !in a..<b // zaprzeczenie
     val range = 100 .. 200 // przypisanie Range do zmiennej
     val charRange = 'a'..'z' //Range dla char
+    4 downTo 1 // range od tyłu
+    1 until 4 //range to samo co z -1
 }

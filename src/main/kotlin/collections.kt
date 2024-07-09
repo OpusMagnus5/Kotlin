@@ -15,4 +15,6 @@ fun main() {
     for (element in stuff) { //iterowanie
         println(element)
     }
+
+    for (element in 1..4 step 2) // co drugi element tylko z range
 }
