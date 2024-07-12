@@ -52,6 +52,17 @@ fun main() {
     val groupOfStudents = mutableMapOf<String, Int>()
     groupOfStudents.putIfAbsent("", 1) // dodaje gdy nie ma klucza
     groupOfStudents += "S" to 1 // można również dodawać nowe elementy w ten sposób
+
+
+    val visitors = setOf<String>("Vlad", "Vanya", "Liza", "Liza") //inicjalizacja setów
+    val set = buildSet<String> {
+        add("a")
+        addAll(visitors)
+        add("d")
+    }
+
+    visitors - set //dodawanie i odejmowanie setów
+    visitors + set
 }
 
 fun helpingTheRobot(purchases: Map<String, Int>, addition: Map<String, Int>) : MutableMap<String, Int> {
