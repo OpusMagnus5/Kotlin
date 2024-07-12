@@ -47,5 +47,15 @@ fun main() {
     students.containsValue(1) //sprawdzanie posiadania klucza i wartości
 
     for ((key, value) in students) {} //iteracja
-    for (st in students) // durgi sposób
+    for (st in students){} // durgi sposób
+
+    val groupOfStudents = mutableMapOf<String, Int>()
+    groupOfStudents.putIfAbsent("", 1) // dodaje gdy nie ma klucza
+    groupOfStudents += "S" to 1 // można również dodawać nowe elementy w ten sposób
+}
+
+fun helpingTheRobot(purchases: Map<String, Int>, addition: Map<String, Int>) : MutableMap<String, Int> {
+    return (purchases.keys + addition.keys)
+        .associateWith { key -> purchases.getOrDefault(key, 0) + addition.getOrDefault(key, 0) }
+        .toMutableMap()
 }
