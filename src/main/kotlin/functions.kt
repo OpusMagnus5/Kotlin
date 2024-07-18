@@ -86,6 +86,7 @@ fun main() {
     }
 
     val functionRef = ::topFun //refrencja do funkcji jak JAVA
+    ::String //referencja do konstruktora
 }
 
 fun operateOnNumbers(a: Int, b: Int, operation: (Int, Int) -> Int): Int {

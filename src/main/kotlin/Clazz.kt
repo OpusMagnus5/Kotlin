@@ -15,6 +15,7 @@ class Person(val name: String, var age: Int) { //Primary konstruktor
         println("Helo Person")
     }
 
+    //w takm przypadku najpierw jest wołany primary constructor, nastepnie blok init, inicjalizacja wartości i na koncu secondary constructor
     constructor(name: String) : this(name, 0) { //secondary konstruktor musi wywołac primary jeśli istnieje
         println("Secondary constructor called")
     }
@@ -29,3 +30,7 @@ class Person2 {
         this.age = age
     }
 }
+
+// w Kotlin możemy dopisywać metody które posiada obiekt ale tak zdefiniowane metody nie mają dostępu do prywatnych pól??
+// nie można nadpisywac metod które posiada już obiekt
+fun String.repeated(): String = this + this
