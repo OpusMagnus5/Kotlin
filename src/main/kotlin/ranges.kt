@@ -1,12 +1,12 @@
 package org.example
 
-const val ageValidForJob = 18..59
+val ageValidForJob = 18..59
 
 fun main() {
 
-    var a: Int;
-    var b: Int;
-    var c: Int;
+    var a: Int = 3;
+    var b: Int = 2;
+    var c: Int = 1
     val within = c in a..b // sprawdzenie czy czy c jest w zakresie od a do b inclusive
     val within2 = c in a..<b // to samo tylko exclusive b
     val notWithin = c !in a..<b // zaprzeczenie

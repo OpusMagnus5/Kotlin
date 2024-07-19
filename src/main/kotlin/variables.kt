@@ -54,7 +54,7 @@ fun main() {
     //Boolean
 
     val longValue: Long = 100L
-    val intValue: Int = longValue // nie zadziała Kotlin nie wspiera loss conversion
+    //val intValue: Int = longValue nie zadziała Kotlin nie wspiera loss conversion
     longValue.toInt() // trzeba bezpośrednio konwertować
     longValue is Long // tak można sprawdzać typ
     longValue as? String //konwertuje ale nie rzuca wyjątku ClassCastException tylko zwraca null
@@ -64,12 +64,12 @@ fun main() {
     val ulong = 5uL //specjalny suffix dla usigned longa
 
     var name: String? = null //oznaczenie zmiennej jako nullable
-    var name2: String = null // to się nie skompiluje ponieważ zmienna nie została oznaczona jako nullable
+    //var name2: String = null to się nie skompiluje ponieważ zmienna nie została oznaczona jako nullable
 
     //Handling nullables variables
     name?.length //przez dodanie pytajnika wyciągamy bezpiecznie wartośc nawet jesli jest null do dostaniemy null
     var length = name?.length ?: 0 // jeśli name jest null lub length by było null to zwrócimy 0
-    var length = name!!.length // rzuca wyjątek NullPointer jeśli name jest null, nalaży unikac stosowania
+    var length2 = name!!.length // rzuca wyjątek NullPointer jeśli name jest null, nalaży unikac stosowania
     val x: Any = "Kotlin"
     val y: String? = x as? String //bezpieczne rzutowanie, zwraca null jeśli x jest nullem
     name?.let { //let keyword wykonuje metode jeśli nie jest nullem
@@ -80,7 +80,7 @@ fun main() {
         // Configure object here
     }
 
-    val positiveNumber = name.takeIf { it > 0 } // pobiera zmienną name jeśli spełnimy warunek, null jeśli nie spełnimy
+    val positiveNumber = name.takeIf { it > "a" } // pobiera zmienną name jeśli spełnimy warunek, null jeśli nie spełnimy
     val notBlankString = name.takeUnless { it.isBlank() } // pobiera zmienną name jeśli nie spełniamy warunku, null jesli spełnimy
 
     if (name is String) { //zmienna sprawdzona w ten sposób wewnatrz jest automatycznie castowana na ten typ

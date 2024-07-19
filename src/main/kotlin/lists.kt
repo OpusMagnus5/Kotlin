@@ -10,5 +10,5 @@ fun main () {
     stars += "Damian" //można dodawać elementy w taki sposób
 
     val toMutableList = newList.toMutableList() //tworzy kopie listy
-    mutableListOf(2, 3, 5).add()
+    mutableListOf(2, 3, 5)
 }

@@ -30,7 +30,7 @@ fun main() {
     when (number) { // jak switch w java, nie trzeba breaka
         1 -> println("One")
         in 1..10 -> println("Two") //można używac range
-        a + b -> println("Three") // można robić działania
+        1 + 2 -> println("Three") // można robić działania
         4, 5 -> println("Four") // można podawac kilka opcji po przecinku
         else -> println("Number is greater than four")
     }
@@ -54,7 +54,7 @@ fun main() {
     val sum = operateOnNumbers(2, 3, { x, y -> x + y }) //przekazywanie metody jako parametr
     val sumFunction = getMathFunction("sum") //można zwracac funkcje
     //wykorzystanie
-    button.setOnClickListener { view -> // lambda
+/*    Int.setOnClickListener { view -> // lambda
     }
 
     fun fetchData(callback: (data: Data) -> Unit) { //callback
@@ -62,7 +62,7 @@ fun main() {
     }
     fetchData { data ->
         println("Data received: $data")
-    }
+    }*/
 
     val numbers = listOf(1, 2, 3, 4)
     val evenNumbers = numbers.filter { it % 2 == 0 } //lambda
