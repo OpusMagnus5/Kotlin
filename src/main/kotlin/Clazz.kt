@@ -34,3 +34,65 @@ class Person2 {
 // w Kotlin możemy dopisywać metody które posiada obiekt ale tak zdefiniowane metody nie mają dostępu do prywatnych pól??
 // nie można nadpisywac metod które posiada już obiekt
 fun String.repeated(): String = this + this
+
+//Zagnieżdżone klasy - Nested Class, brak dostępu do pól klasy rodzica
+class Superhero {
+    val power = 1000
+
+    class MagicCloak {
+        val magicPower = 100
+    }
+
+    class Hammer {
+        // you cannot access power property from Superhero here
+        val mightPower = 100
+    }
+}
+
+// Inner class, może mieć dostęp do pól klasy rodzica w przeciwieńswtie do klasy nested
+class Cat(val name: String, val color: String) {
+    inner class Bow(val color: String) {
+        fun printColor() {
+            // this@Cat.color takiej notacji użwyamy zeby wskazać dokładnie której klasy pole gdy mają takie same
+            println("The cat named $name is ${this@Cat.color} and has a $color bow.")
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
