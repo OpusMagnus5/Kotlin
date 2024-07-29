@@ -10,7 +10,8 @@ package org.example
 data class Musician(var name: String, var instrument: String, var band: String)
 
 // APPLY
-// wykonujemy kod w kontekście obiektu, obiekt kontekstu jest dostępny this, zwraca obiekt kontekstu.
+// return context objects
+// Object configuration
 fun example1() {
 
     val dave = Musician("Dave Grohl", "Drums", "Nirvana").apply {
@@ -23,6 +24,7 @@ fun example1() {
 
 // ALSO
 /*
+* return context objects
 * Użycie also jest podobne do zastosowania apply, ale zaleca się wybranie also,
 * gdy pracujesz z całym obiektem i nie dbasz o jego parametry lub metody.
 * Ma również interesującą cechę - wykonuje operacje natychmiast (w rzeczywistości zwraca kontekst przed wykonaniem operacji)
@@ -41,6 +43,7 @@ fun example2() {
 * It returns the result of a lambda
 * Po pierwsze, gdy chcemy zrobić coś z obiektem kontekstu i nie chcemy otrzymać wyniku.
 * Poza tym używamy with, gdy chcemy utworzyć obiekt pomocniczy, którego parametry lub funkcje mogą być użyte do obliczenia wyniku.
+* Grouping function calls on an object
 * Ważne - ten nowy obiekt jest używany jako pomocniczy (będziemy pracować z prawdziwym obiektem w metodzie run).
 */
 
@@ -62,9 +65,8 @@ fun example3() {
 *
 * Context object is available as it
 * It returns the result of a lambda
-* Po pierwsze, gdy chcemy zrobić coś z operatorem bezpiecznego wywołania ? i obiektami non-null
-* Po drugie, używamy let, gdy chcemy wprowadzić zmienne lokalne o ograniczonym zakresie.
-* W takim przypadku let pozwala nam poprawić czytelność kodu
+* Executing a lambda on non-null objects
+* Introducing an expression as a variable in local scope
 */
 
 fun example4() {
@@ -87,7 +89,7 @@ fun example4() {
 *
 * Context object is available as this
 * It returns the result of a lambda
-* Po pierwsze, gdy chcemy zainicjować nowy obiekt i przekazać do niego wynik lambdy.
+* Object configuration and computing the result.
 * Po drugie, gdy chcemy użyć funkcji bez rozszerzenia i wykonać blok kilku operatorów.
 */
 
