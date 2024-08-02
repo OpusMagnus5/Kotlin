@@ -63,6 +63,14 @@ fun main() {
 
     visitors - set //dodawanie i odejmowanie setów
     visitors + set
+
+    /*
+    * Predicates in collections
+    */
+    visitors.none() // zwraca true jesli kolekcja jest niepusta
+    visitors.any { x -> x.startsWith("a") }
+    visitors.none { x -> x.startsWith("a") }
+    visitors.all { x -> x.startsWith("a") }
 }
 
 fun helpingTheRobot(purchases: Map<String, Int>, addition: Map<String, Int>) : MutableMap<String, Int> {
