@@ -1,6 +1,8 @@
 package org.example
 
-fun main() {
+import java.util.*
+
+fun example11() {
 
     val stuff = listOf(1)
     stuff.contains(1)
@@ -71,6 +73,31 @@ fun main() {
     visitors.any { x -> x.startsWith("a") }
     visitors.none { x -> x.startsWith("a") }
     visitors.all { x -> x.startsWith("a") }
+
+    /*
+    * Sorting collections
+    */
+    stuff.sorted()
+    stuff.sortedDescending()
+    /*
+    * Zwraca kopię oryginalnej kolekcji w odwrotnej kolejności indeksów.
+    * Jeśli zmienisz oryginalną kolekcję, zmiany nie wpłyną na kopię.
+    */
+    stuff.reversed()
+    /*
+    * Metoda asReversed() zwraca odniesienie do oryginalnej kolekcji w odwrotnej kolejności indeksów.
+    * Jest to lżejsze, ponieważ nie tworzy nowej kopii, ale jeśli oryginalna kolekcja ulegnie zmianie,
+    * zmiany zostaną odzwierciedlone na odwróconej liście. Musimy być ostrożni, jeśli pracujemy z mutowalnymi kolekcjami.
+    */
+    stuff.asReversed()
+    /*
+    * Daje nową kolekcję, w której oryginalne elementy są losowo tasowane.
+    * Można jej użyć bez argumentów lub z instancją Random jako źródłem losowości.
+    * Użycie liczby całkowitej jako ziarna w generatorze Random spowoduje przetasowanie elementów w losowy sposób,
+    * który można odtworzyć, jeśli nadal będziesz używać tego samego ziarna.
+    */
+    stuff.shuffled()
+    stuff.shuffled(Random(1))
 }
 
 fun helpingTheRobot(purchases: Map<String, Int>, addition: Map<String, Int>) : MutableMap<String, Int> {
