@@ -11,4 +11,14 @@ fun main() {
     greeting.lastIndex //oststni index
 
     val same = greeting == str // porównujemy przez == to jak equals w java
+
+    greeting.substring(0, 3)
+    greeting.substringAfter('l')
+    greeting.substringAfterLast('l')
+
+    greeting.replace("morning", "bye")
+    greeting.replaceFirst("morning", "bye")
+
+    greeting.lowercase()
+    greeting.uppercase()
 }
