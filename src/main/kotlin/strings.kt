@@ -1,6 +1,6 @@
 package org.example
 
-fun main() {
+fun example10() {
 
     val greeting = "Hello"
     val str = "str"
@@ -21,4 +21,22 @@ fun main() {
 
     greeting.lowercase()
     greeting.uppercase()
+
+    greeting.split(" ")
+
+    for (i in 0 until greeting.length) {
+        greeting[i]
+    }
+
+    for (index in greeting.indices){
+        greeting[index]
+    }
+
+    for (ch in greeting) {
+        Character.isWhitespace(ch)
+    }
+
+    val charArray: CharArray = greeting.toCharArray()
+    val arraysString = String(charArray)
+
 }
