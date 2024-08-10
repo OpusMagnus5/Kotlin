@@ -98,6 +98,24 @@ fun example11() {
     */
     stuff.shuffled()
     stuff.shuffled(Random(1))
+
+    // Retrieve single element
+    stuff.elementAt(0)
+    stuff.get(0)
+    stuff[0]
+    stuff.first()
+    stuff.last()
+    stuff.elementAtOrElse(0) { 1 }
+    stuff.getOrElse(1) { 2 }
+    stuff.find { it > 1 }
+    stuff.findLast { it > 2 }
+
+    // Mapuje obiekt i zwraca
+    stuff.firstNotNullOf { it.toString() }
+    stuff.firstNotNullOfOrNull { it.toString() }
+
+    stuff.random()
+    stuff.randomOrNull()
 }
 
 fun helpingTheRobot(purchases: Map<String, Int>, addition: Map<String, Int>) : MutableMap<String, Int> {
