@@ -48,7 +48,22 @@ fun main() {
 
     val functionRef = ::topFun //refrencja do funkcji jak JAVA
     ::String //referencja do konstruktora
+
+    /*
+    * Infix function notation
+    * W notacji infiksowej nazwa funkcji jest umieszczana między argumentami, a sama nazwa funkcji jest operatorem.
+    * Przykładem takiej funkcji może być add(2, 4), w której funkcja add oznacza dodawanie ("add"): add(2, 4) = 2 add 4
+    *
+    * To define an infix function, you must meet the following requirements.
+    * They must be member functions or extension functions.
+    * They must have a single parameter.
+    * The parameter must not accept variable number of arguments and must have no default value.
+    */
+
+    println(1 add 2)
 }
+
+infix fun Int.add(x: Int): Int = this + x
 
 fun operateOnNumbers(a: Int, b: Int, operation: (Int, Int) -> Int): Int {
     return operation(a, b)
