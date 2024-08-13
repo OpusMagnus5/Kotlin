@@ -2,7 +2,7 @@ package org.example
 
 import java.util.Scanner
 
-fun main() {
+fun example15() {
     readln() //czyta linie
     val scanner = Scanner(System.`in`) //możemy sięgać do bibliotek javy normalnie
     Scanner("sdsds") // możemy wskazać źródło sami
@@ -61,6 +61,23 @@ fun main() {
     */
 
     println(1 add 2)
+
+    /*
+    * Lambda with receiver
+    */
+
+    sum(1, 2)
+    1.sum2(2) // różnica w wywołaniu, można wywoływac na konkretnym obiekcie
+    val str2 = myString { // słuzy tez do inicjowania obiektów, tak działa podspodem np StringBuilder
+        append("Hello, ".uppercase())
+        append("World!")
+    }
+}
+
+val sum: (Int, Int) -> Int = { a, b -> a + b } // zwykła lambda
+val sum2: Int.(Int) -> Int = { a -> this + a } // lambda with receiver type Int.(Int) Int. wskazuje receivera
+fun myString(init: StringBuilder.() -> Unit): String { // StringBuilder. wskazuje receivera a () to po prostu lamda bez argumentów
+    return StringBuilder().apply(init).toString()
 }
 
 infix fun Int.add(x: Int): Int = this + x
