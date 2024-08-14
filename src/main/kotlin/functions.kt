@@ -77,6 +77,7 @@ fun example15() {
 val sum: (Int, Int) -> Int = { a, b -> a + b } // zwykła lambda
 val sum2: Int.(Int) -> Int = { a -> this + a } // lambda with receiver type Int.(Int) Int. wskazuje receivera
 fun myString(init: StringBuilder.() -> Unit): String { // StringBuilder. wskazuje receivera a () to po prostu lamda bez argumentów
+    init(StringBuilder()) // to jest drugi sposób wywołania lambdy przekazując obiekt jako parametr mimo że lambda w zapisie nie przyjmuje zadnych parametrów
     return StringBuilder().apply(init).toString()
 }
 
