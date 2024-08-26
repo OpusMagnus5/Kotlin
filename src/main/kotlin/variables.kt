@@ -7,7 +7,7 @@ const val STATE: String = "Full"
 // const może być stosowanych tylko dla prymitywów
 // musi być deklarowana poza funkcją, na najwyższym poziomie
 
-fun main() {
+fun main18() {
     val numberType: Int = 1_000_000 // tak można definiować liczby w celu czytelności
     // val deklaruje tylko zmienną do oczytu (referencje)
 
@@ -89,4 +89,44 @@ fun main() {
 
     fun String.addExclamation() = this + "!" //ZAJEBISTE można dodawać metody już do istnięjacych obiektów !!!
     var numb12: Int? = null
+}
+
+/*
+* Leniwa inicjalizacja pozwala nam utworzyć obiekt dokładnie w momencie, gdy pojawi się do niego pierwsze odwołanie.
+*/
+
+fun lazyInitialization() {
+    /*
+    * Kotlin posiada specjalną funkcję lazy(), która akceptuje lambdę.
+    * Pierwsze wywołanie wykonuje tę lambdę i zapamiętuje wynik. Kolejne wywołania po prostu zwracają tę wartość.
+    * zmienne lazy muszą być zadeklarowane z val
+    *
+    * lazy() function's mode parameters:
+    * LazyThreadSafetyMode.SYNCHRONIZED - oznacza, że wartość jest obliczana tylko w jednym wątku, a wszystkie wątki
+    * otrzymają tę samą wartość. Jest to opcja domyślna, więc możesz ją pominąć, jeśli chcesz
+    * LazyThreadSafetyMode.PUBLICATION - określa, że lambda może być wywołana kilka razy z niezainicjalizowaną wartością
+    * leniwego obiektu, ale wartość, która zostanie zwrócona jako pierwsza, zostanie użyta
+    * LazyThreadSafetyMode.NONE - oznacza, że nie ma żadnej synchronizacji, więc jeśli wywołamy zmienną z różnych wątków,
+    * jej wartość nie może być jednoznacznie zdefiniowana. Korzystanie z tej opcji nie jest zalecane, jeśli program pozwala
+    * na wywołanie leniwego obiektu po raz pierwszy z więcej niż jednego wątku
+    */
+    val a: String by lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
+        print("Variable a is initialized. ")
+        "I love Hyperskill!"
+    }
+
+    println(a) // Variable a is initialized. I love Hyperskill!
+    println(a) // I love Hyperskill!
+
+    /*
+    * inny sposób to deklaracja z lateinit i poźniejsza inicjalizajca obiektu
+    * zmienne lateinit muszą być zadeklarowane z var
+    */
+
+    lateinit var b: String
+    b = a
+    if (::a.isInitialized) // zadziała tylko na polu w obiekcie, sprawdza czy jest zainicjalizowana
+        println("a is Initialized")
+    else
+        println("a isn't Initialized")
 }
