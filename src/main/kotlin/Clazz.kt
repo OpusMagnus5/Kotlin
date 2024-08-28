@@ -59,35 +59,17 @@ class Cat(val name: String, val color: String) {
     }
 }
 
+/*
+* Overriding constructors
+* Podczas deklarowania podklasy możemy użyć słów kluczowych open, final i override, aby kontrolować dziedziczenie i polimorfizm.
+* open: pozwala podklasom dziedziczyć lub nadpisywać funkcje i właściwości.
+* final: zapobiega nadpisywaniu funkcji lub właściwości przez podklasy.
+* override: jest używany przez podklasę do nadpisywania funkcji lub właściwości nadklasy
+*/
 
+open class Person4(open val name: String)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+class Employee(override val name: String, val id: Int) : Person4(name)  // Nadpisujemy pole name
 
 
 
