@@ -130,3 +130,22 @@ fun lazyInitialization() {
     else
         println("a isn't Initialized")
 }
+
+/*
+* NOTHING
+* Nothing jest unikalnym typem, ponieważ nie posiada instancji
+* Nothing jest podtypem każdego znanego typu w Kotlinie. Oznacza to, że może reprezentować wartość dowolnego typu pod względem sprawdzania typów.
+*/
+
+fun fail(): Nothing {
+    throw Exception("This function always throws an exception")
+}
+
+fun greet(): String {
+    fail() // jest to dozwolone, ponieważ Nothing jest podtypem String
+}
+
+fun yetToImplementFeature(): String {
+    TODO("Feature not implemented yet") // TODO rzuca NotImplementedError z podanym powodem
+    println("This statement is unreachable") // To nigdy się nie wykona z powodu TODO()
+}
