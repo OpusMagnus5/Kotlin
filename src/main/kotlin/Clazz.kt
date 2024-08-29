@@ -69,7 +69,7 @@ class Cat(val name: String, val color: String) {
 
 open class Person4(open val name: String)
 
-class Employee(override val name: String, val id: Int) : Person4(name)  // Nadpisujemy pole name
+class Employee(override val name: String, val id: Int) : Person4(name)  // Nadpisujemy pole name, zapis : Person4(name) oznacza to samo co w Java extends
 
 /*
 * W Kotlinie wszystkie klasy i metody są domyślnie final. Oznacza to, że jeśli zadeklarujesz klasę w Kotlinie,
