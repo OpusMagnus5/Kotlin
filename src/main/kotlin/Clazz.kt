@@ -90,6 +90,65 @@ open class MyIntermediateClass : MyBaseClass() {
     }
 }
 
+/*
+* Wszystkie elementy składowe klasy - pola, metody i właściwości - mają modyfikatory widoczności.
+* W Kotlinie istnieją cztery modyfikatory dostępu: private, protected, internal i public.
+* Słowo kluczowe public służy do informowania kompilatora, że coś powinno być dostępne dla wszystkich.
+* W przypadku użycia opcji private, dane będą dostępne tylko w ramach określonej klasy.
+* protected jest tym samym co private, z wyjątkiem tego, że może być widoczne w podklasach.
+* Internal modyfikator oznacza, że ten, kto widzi deklarowaną klasę, widzi jej wewnętrznych członków
+*/
+
+class Bank {
+    internal val accountNumber: Long = 5L
+
+    internal fun getBranch(): String {
+        return "Branch is Alex"
+    }
+}
+
+class BankController {
+    private val bank = Bank()
+
+    fun getUserAccountNumber(): Long {
+        return bank.accountNumber // same module
+    }
+}
+
+/*
+*  Można również określić modyfikator dla konstruktorów: na przykład uczynić główny konstruktor klasy prywatnym.
+*/
+
+class Student private constructor(val name: String) {
+    var age: Int = 0
+
+    constructor(name: String, _age: Int) : this(name) {
+        age = _age
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
