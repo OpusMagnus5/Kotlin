@@ -71,6 +71,25 @@ open class Person4(open val name: String)
 
 class Employee(override val name: String, val id: Int) : Person4(name)  // Nadpisujemy pole name
 
+/*
+* W Kotlinie wszystkie klasy i metody są domyślnie final. Oznacza to, że jeśli zadeklarujesz klasę w Kotlinie,
+* nie będziesz mógł jej dziedziczyć, dopóki wyraźnie nie użyjesz open. Tak samo w przypadku metod i pól.
+*
+* Można użyć final dla nadpisanych metod lub właściwości, aby zapobiec ich dalszemu redefiniowaniu.
+*/
+
+open class MyBaseClass {
+    open fun myMethod() {
+        println("Basic implementation")
+    }
+}
+
+open class MyIntermediateClass : MyBaseClass() {
+    final override fun myMethod() {
+        println("An overridden implementation that cannot be redefined further")
+    }
+}
+
 
 
 
