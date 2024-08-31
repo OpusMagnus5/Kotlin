@@ -17,3 +17,12 @@ fun main() {
 fun makeAnException(): Nothing { //kiedy funkcja rzuca wyjątek zwraca typ Nothing
     throw Exception("I'm an exception!")
 }
+
+class LessThanZero: Exception("Parameter less than zero") // deklaracja nowego wyjątku
+
+class MyCustomException: Exception {
+    constructor() : super()  // super możemy użyć tylko wtedy jeśli nowa klasa nie ma primary constructora
+    constructor(message: String?) : super(message)
+    constructor(message: String?, cause: Throwable?) : super(message, cause)
+    constructor(cause: Throwable?) : super(cause)
+}
