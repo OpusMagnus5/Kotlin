@@ -125,10 +125,10 @@ fun lazyInitialization() {
 
     lateinit var b: String
     b = a
-    if (::a.isInitialized) // zadziała tylko na polu w obiekcie, sprawdza czy jest zainicjalizowana
+    /*if (::a.isInitialized) // zadziała tylko na polu w obiekcie, sprawdza czy jest zainicjalizowana
         println("a is Initialized")
     else
-        println("a isn't Initialized")
+        println("a isn't Initialized")*/
 }
 
 /*

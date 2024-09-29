@@ -12,6 +12,11 @@ fun main() {
     FileReader("file.txt").use { // use działa jak try witch resources
             reader ->
     }
+
+    // dostęp do stack trace podczas działania programu
+    Thread.currentThread().stackTrace
+    Throwable().stackTrace
+    Throwable().printStackTrace()
 }
 
 fun makeAnException(): Nothing { //kiedy funkcja rzuca wyjątek zwraca typ Nothing
@@ -26,3 +31,4 @@ class MyCustomException: Exception {
     constructor(message: String?, cause: Throwable?) : super(message, cause)
     constructor(cause: Throwable?) : super(cause)
 }
+
