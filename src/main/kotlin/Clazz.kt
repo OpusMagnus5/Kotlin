@@ -127,6 +127,24 @@ class Student private constructor(val name: String) {
     }
 }
 
+/*
+* Nadpisywanie metod
+*/
+open class Transport(val cost: Int) {
+    open fun getFullInfo(): String {
+        return "$$cost cost"
+    }
+
+}
+
+open class Ship(cost: Int, val color: String) : Transport(cost) {
+
+    // Domyślnie każda nadpisana funkcja w Kotlinie jest otwarta.
+    override fun getFullInfo(): String {
+        return super.getFullInfo() + ", $color color"
+    }
+}
+
 
 
 
