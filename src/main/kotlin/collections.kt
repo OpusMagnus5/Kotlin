@@ -63,6 +63,20 @@ fun example11() {
     groupOfStudents.putIfAbsent("", 1) // dodaje gdy nie ma klucza
     groupOfStudents += "S" to 1 // można również dodawać nowe elementy w ten sposób
 
+    // Mapowanie mapy na liste wartości lub kluczy
+    val strings: List<String> = students.map { it.key.uppercase() }
+    val ints: List<Int> = students.map { it.value * 2 }
+
+    // Mapowanie tylko kluczy lub wartości zachowując strukture mapy
+    val mapKeys: Map<String, Int> = students.mapKeys { it.key.uppercase() }
+    val mapValues: Map<String, Int> = students.mapValues { it.value * 2 }
+
+    val listOfMaps = listOf(
+        mapOf(1 to "one", 2 to "two"),
+        mapOf(3 to "three", 4 to "four")
+    )
+
+    val flatMap1: Map<Int, String> = listOfMaps.flatMap { it.entries }.associate { it.key to it.value } // mapowanie listy map na mape
 
     val visitors = setOf<String>("Vlad", "Vanya", "Liza", "Liza") //inicjalizacja setów
     val set = buildSet<String> {
@@ -124,6 +138,22 @@ fun example11() {
 
     stuff.random()
     stuff.randomOrNull()
+
+    stuff.map { it * 2 }
+    stuff.mapIndexed{ index, value -> value * index }
+    // Jeśli zastosujesz funkcję transformacji do elementów, a transformacja nie może zostać wykonana na niektórych z nich, wynikiem dla tych elementów jest null
+    // Można uniknąć tych wyników używając mapNotNull() lub mapIndexedNotNull()
+    stuff.mapNotNull { it * 2 }
+    stuff.mapIndexedNotNull{ index, value -> value * index }
+
+    val nestedNumbers = listOf(
+        listOf(1, 2, 3),
+        listOf(4, 5, 6),
+        listOf(7, 8, 9)
+    )
+    val flatten: List<Int> = nestedNumbers.flatten() // łączy listy w jedną
+    val flatMap = nestedNumbers.flatMap { it.map { it * 2 } } // łączy listy w jedną i jednocześnie mapuje
+
 }
 
 fun helpingTheRobot(purchases: Map<String, Int>, addition: Map<String, Int>) : MutableMap<String, Int> {
