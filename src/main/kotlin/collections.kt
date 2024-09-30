@@ -23,6 +23,14 @@ fun example11() {
 
     for (element in stuff.indices) {} //iterowanie ale po indexach
 
+    stuff.forEach { print("$it ") }
+
+    // Jednego iteratora można użyć tylko raz na iterację
+    val songsIterator = stuff.iterator()
+    while (songsIterator.hasNext()) {
+        print("${songsIterator.next()} ")
+    }
+
     for (index in stuff.indices.reversed()) {} //iterowanie w odrotnej kolejności
 
     val students = mapOf( //tworzenie mapy
