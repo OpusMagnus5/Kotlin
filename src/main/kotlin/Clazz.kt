@@ -152,7 +152,22 @@ open class Ship(cost: Int, val color: String) : Transport(cost) {
     }
 }
 
+/*
+* Data class jak rekod w Java. To słowo kluczowe udostępnia również funkcje toString(), copy() i componentN().
+* Można liczyć tylko na właściwości, które znajdują się wewnątrz konstruktora
+* Można nadpisać wszystkie te funkcje, z wyjątkiem copy
+* Podstawowy konstruktor klasy danych musi mieć co najmniej jeden parametr i wszystkie te parametry muszą być typu val lub var
+*/
+data class Client(val name: String, val age: Int, val gender: String)
 
+fun exampleClient() {
+    val tom = Client("Tom", 13, "male")
+    // kopiowanie obiektu
+    val john = tom.copy(name = "John")
+
+    tom.component1() // zwraca name, 2 zwróci age itp
+    val (name, age, gender) = tom // destrukturyzacja obiektu
+}
 
 
 
