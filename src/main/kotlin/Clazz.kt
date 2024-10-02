@@ -135,6 +135,9 @@ open class Transport(val cost: Int) {
         return "$$cost cost"
     }
 
+    override fun toString(): String {
+        return "Transport(cost=$cost)"
+    }
 }
 
 open class Ship(cost: Int, val color: String) : Transport(cost) {
@@ -142,6 +145,10 @@ open class Ship(cost: Int, val color: String) : Transport(cost) {
     // Domyślnie każda nadpisana funkcja w Kotlinie jest otwarta.
     override fun getFullInfo(): String {
         return super.getFullInfo() + ", $color color"
+    }
+
+    override fun toString(): String {
+        return "Ship(${super.toString()};\ncolor='$color')"
     }
 }
 
