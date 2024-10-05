@@ -24,3 +24,50 @@ class Cat(): Animal {
     override fun move() {
     }
 }
+
+/*
+* Dziedziczenie interfejsów
+*/
+interface Animal2 {
+    val amountOfLimbs: Int
+    fun move()
+    fun communicate()
+}
+
+// rozszerzenie interfejsu Animal2
+interface Bird : Animal2 {
+    val canFly: Boolean
+    val flyingSpeed: Int
+    fun buildNest()
+}
+
+interface Flying {
+    val flyingSpeed: Int
+    val flyingManeuverability: Int
+}
+
+// implementacja kilku interfejsów
+class Owl : Bird, Flying {
+
+    override val flyingSpeed: Int = 100
+    override val flyingManeuverability: Int = 95
+    override val canFly: Boolean = true
+
+    override fun buildNest() {
+    }
+
+    override val amountOfLimbs: Int = 2
+
+    override fun move() {
+    }
+
+    override fun communicate() {
+    }
+
+}
+
+// interfejs też może rozszerzać kilka interfejsów
+interface FlyingBird : Bird, Flying
+{
+    /* ... */
+}
