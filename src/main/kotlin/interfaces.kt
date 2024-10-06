@@ -71,3 +71,29 @@ interface FlyingBird : Bird, Flying
 {
     /* ... */
 }
+
+
+/*
+* Delegate
+*/
+interface MyInterface {
+    fun print()
+    val msg: String
+}
+
+class MyImplementation : MyInterface {
+    override fun print() {
+        println(msg)
+    }
+
+    override val msg: String = "MyImplementation sends regards!"
+}
+
+/*
+* dostarczamy już implementacje interfejsu jeśli nam odpowiada by nie powielać kodu
+* Ale jeśli np użyjemy print na MyNewClass to wydrukuje MyImplementation sends regards!
+* Możemy dowolną ilośc implementowanych interfejsów delegowac do gotowych implementacji
+*/
+class MyNewClass(base: MyInterface) : MyInterface by base {
+    override val msg = "Delegate sends regards."
+}
