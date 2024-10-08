@@ -154,6 +154,13 @@ fun example11() {
     val flatten: List<Int> = nestedNumbers.flatten() // łączy listy w jedną
     val flatMap = nestedNumbers.flatMap { it.map { it * 2 } } // łączy listy w jedną i jednocześnie mapuje
 
+    val words = listOf("anne", "michael", "caroline", "dimitry", "emilio")
+    words.minByOrNull(String::length) // anne
+    words.minOfOrNull(String::length) // 4
+    words.sumOf(String::length) // 32
+    words.minWithOrNull(compareBy(String::length)) // anne
+    words.minOfWithOrNull(naturalOrder()) { it.length } // 4
+    words.sortedWith(compareBy { it.length }).reversed()
 }
 
 fun helpingTheRobot(purchases: Map<String, Int>, addition: Map<String, Int>) : MutableMap<String, Int> {
