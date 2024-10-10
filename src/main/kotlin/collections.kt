@@ -161,6 +161,32 @@ fun example11() {
     words.minWithOrNull(compareBy(String::length)) // anne
     words.minOfWithOrNull(naturalOrder()) { it.length } // 4
     words.sortedWith(compareBy { it.length }).reversed()
+
+    // reduce używa pierwszego elementu jako wartości początkowej akumulatora
+    // reduce zgłosi wyjątek, jeśli zostanie wykonana na pustej kolekcji
+    // Wynik operacji redukcji będzie zawsze tego samego typu (lub supertypu) co dane, które są redukowane
+    stuff.reduce {acc, i -> acc + i}
+    // fold używa pierwszego elementu jako wartości początkowej akumulatora
+    // jeśli kolekcja jest pusta zostanie zwrócona wartość początkowa.
+    // Możemy zmienić typ zwracanej wartości
+    stuff.fold(0) {acc, i -> acc + i}
+
+    // stosowanie operacji od prawej do lewej
+    stuff.reduceRight {acc, i -> acc + i}
+    stuff.foldRight(0) {acc, i -> acc + i}
+
+    // z indeksem
+    stuff.reduceIndexed { index, acc, i -> if (index % 2 == 0) acc + i else acc }
+    stuff.reduceRightIndexed { index, acc, i -> if (index % 2 == 0) acc + i else acc }
+    stuff.foldIndexed(0) { index, acc, i -> if (index % 2 == 0) acc + i else acc }
+    stuff.foldRightIndexed(0) { index, acc, i -> if (index % 2 == 0) acc + i else acc }
+
+    // dla reduce są tez warianty z nullami zeby nie rzucac wyjatku dla pustej kolekcji
+    stuff.reduceOrNull { acc, i -> acc + i }
+
+    // W niektórych przypadkach warto zapisać wartość pośrednią akumulatora
+    stuff.runningReduce { acc, i -> acc + i }
+    stuff.runningFold(0) {acc, i -> acc + i}
 }
 
 fun helpingTheRobot(purchases: Map<String, Int>, addition: Map<String, Int>) : MutableMap<String, Int> {
