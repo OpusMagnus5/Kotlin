@@ -187,6 +187,35 @@ fun example11() {
     // W niektórych przypadkach warto zapisać wartość pośrednią akumulatora
     stuff.runningReduce { acc, i -> acc + i }
     stuff.runningFold(0) {acc, i -> acc + i}
+
+    // slice tworzy liste na podstawie podanych indeksów
+    stuff.slice(0..4)
+    stuff.slice(0..5 step 2)
+    stuff.slice(4 downTo 0 step 2)
+    stuff.slice(listOf(0, 2, 4))
+
+    // take - zwraca kolekcję zawierającą n elementów z oryginalnej kolekcji, zaczynając od pierwszego elementu.
+    // W przypadku wywołania z liczbą większą niż rozmiar kolekcji, zwracana jest cała kolekcja.
+    stuff.take(5)
+    stuff.takeLast(5)
+    stuff.takeWhile { it < 5 }
+    stuff.takeLastWhile { it > 5 }
+
+    // zwraca kolekcję zawierającą wszystkie elementy z wyjątkiem pierwszych n elementów.
+    stuff.drop(3)
+    stuff.dropLast(3)
+    stuff.dropWhile { it > 2 }
+    stuff.dropLastWhile { it < 4 }
+
+    // dzieli liste elementów na kawałki list n elementów
+    stuff.chunked(3)
+
+    // podobnie jak chunked windows of 3, default step is 1
+    stuff.windowed(3) //[[1, 2, 3], [2, 3, 4], [3, 4, 5], [4, 5, 6], [5, 6, 7], [6, 7, 8], [7, 8, 9], [8, 9, 10]]
+    stuff.windowed(3, 3)// [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    stuff.windowed(3, 4, false) // [[1, 2, 3], [5, 6, 7]]
+    stuff.windowed(3, 4, true) // [[1, 2, 3], [5, 6, 7], [9, 10]]
+    stuff.windowed(3, 4, true) { it.sum() } // [6, 18, 19]
 }
 
 fun helpingTheRobot(purchases: Map<String, Int>, addition: Map<String, Int>) : MutableMap<String, Int> {
